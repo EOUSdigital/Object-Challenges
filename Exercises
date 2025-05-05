@@ -1,0 +1,80 @@
+//* 🧪 Filter by Property and Sort
+
+//? 🔹 Scenario:
+//  We have a list of books, and we want to:
+//  Only keep the books that are marked as read: true
+//  Sort them by year, from most recent to oldest
+
+//? 🔍 Data:
+
+const books = [
+    { title: "Eloquent JavaScript", year: 2018, read: true },
+    { title: "You Don't Know JS", year: 2015, read: false },
+    { title: "JavaScript: The Good Parts", year: 2008, read: true },
+    { title: "The Pragmatic Programmer", year: 2019, read: true },
+];
+
+//! Solution
+
+const readBooks = books
+    .filter(book => book.read === true)
+    .sort((a, b) => {
+        return b.year - a.year;
+    });
+
+console.log(readBooks);
+
+//* 🧪 Find Students Who Passed and Format Their Names
+
+//? 🔹 Scenario:
+//  We are given an array of student objects. Each has a name and score:
+
+const students = [
+    { name: "Anna", score: 72 },
+    { name: "Ben", score: 89 },
+    { name: "Clara", score: 95 },
+    { name: "Derek", score: 60 },
+];
+
+//? 🎯 Task:
+//  1. Only include students with a score of 70 or higher
+//  2. Format each passing student’s name into a string like:   "Anna passed with 72 points"
+
+//! Solution
+
+const higherScoreStudents = students
+    .filter(student => student.score >= 70)
+    .map(student => `${student.name} passed with ${student.score} points`);
+
+    console.log(higherScoreStudents);
+
+//* 🧪 Count Items by Category
+
+//?🔹 Scenario:
+//  We are managing a warehouse inventory system. Each product has a name and category.
+
+const items = [
+    { name: "Desk", category: "furniture" },
+    { name: "Chair", category: "furniture" },
+    { name: "Monitor", category: "electronics" },
+    { name: "Mouse", category: "electronics" },
+    { name: "Lamp", category: "furniture" },
+];
+
+//? 🎯 Task:
+//  Count how many items are in each category.
+
+//! Solution
+
+const counts = {};
+
+for (i = 0; i < items.length; i++) {
+    const category = items[i].category;
+    if (counts[category]) {
+        counts[category] += 1;
+    } else {
+        counts[category] = 1;
+    }
+}
+
+console.log(counts);
